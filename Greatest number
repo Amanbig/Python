@@ -1,0 +1,9 @@
+a=int(input("Enter firt number\n")
+b=int(input("Enter another number\n")
+c=int(input("Enter last number\n");
+if a>=b and a>=c:
+    print(f"{a} is greater\n")
+elif b>=a and b>=c:
+    print(f"{b} is greater\n")
+elif c>=a and c>=b:
+    print(f"{c} is greater\n")
