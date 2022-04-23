@@ -1,0 +1,9 @@
+def main():
+    a=int(input("Enter number\n"))
+    if is_even(a):
+        print("It is even\n")
+    else:
+        print("It is odd\n")
+        
+def is_even(a):
+    return True if a%2==0 else return False
