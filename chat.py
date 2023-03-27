@@ -67,6 +67,12 @@ def comand(query):
 
         os.system('NOTEPAD')
 
+    elif 'wordpad' in query:
+
+        print('opening wordpad')
+
+        os.system('WORDPAD')
+
     elif 'time' in query:
 
         time=datetime.time(datetime.now())

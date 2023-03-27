@@ -20,6 +20,8 @@ from bs4 import BeautifulSoup
 
 from geopy.geocoders import Nominatim
 
+from playsound import playsound
+
 
 def speak(comand):
 
@@ -36,7 +38,11 @@ def speak(comand):
 
 def wishme():
 
-    speak('activating friday automation! connecting to satellite no 105,friday is online sir')
+    playsound('C://Users//amanp//Programing//Python//final_63750298a5e9710025f5ab7f_861572.mp3')
+
+    os.system('cls')
+
+    speak('activating friday automation! connecting to satellite number 305! , friday is online sir')
 
     time=datetime.time(datetime.now())
 
@@ -130,6 +136,12 @@ def comands(query):
 
         os.system('NOTEPAD')
 
+    elif 'wordpad' in query:
+
+        speak('opening wordpad')
+
+        os.system('WORDPAD')
+
     elif 'joke' in query:
 
         joke=pyjokes.get_joke(category='neutral',language='hi-in')
@@ -173,20 +185,6 @@ def comands(query):
         speak(time.strftime("%H %M"))
 
         print('Current time: ',time.strftime("%H %M"))
-
-    elif 'latitude' or 'longitude' in query:
-
-        loc = Nominatim(user_agent="GetLoc")
-
-        a=input('Enter city name: ')
-
-        getLoc = loc.geocode(a)
-
-        print(getLoc.address)
-
-        print("Latitude = ", getLoc.latitude)
-        
-        print("Longitude = ", getLoc.longitude)
 
     elif 'temperature' in query:
 
@@ -258,6 +256,34 @@ def comands(query):
 
             speak("i don't have any name saved")
 
+    elif "None" in query:
+
+        speak('say something to search')
+
+        query=takecomand()
+
+        print('You said: '+query)
+
+        text=wikipedia.summary(query,sentences=2)
+
+        print(text)
+
+        speak(text)
+
+    elif 'latitude' or 'longitude' in query:
+
+        loc = Nominatim(user_agent="GetLoc")
+
+        a=input('Enter city name: ')
+
+        getLoc = loc.geocode(a)
+
+        print(getLoc.address)
+
+        print("Latitude = ", getLoc.latitude)
+        
+        print("Longitude = ", getLoc.longitude)
+
     elif 'exit' or 'quit' or 'bye' in query:
 
         speak('bye sir')
@@ -278,6 +304,8 @@ def main():
     wishme()
 
     while(1):
+
+        speak('say something')
 
         query=takecomand()
 
